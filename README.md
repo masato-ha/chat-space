@@ -5,34 +5,15 @@
 |name|string|null: false, unique: true|
 add_index :users, :name
 ### Association
-- belongs_to :auth_informatlon
 - has_many :messages
 - has_many :users_groups
 - has_many :groups,  through:  :users_groups
-
-## auth_informatlonテーブル
-|Column|Type|Options|
-|------|----|-------|
-|id|bigint|null: false|
-|email|string|null: false, unique: true|
-|user_id|bigint|null: false, foreign_key: true|
-|login_id|bigint|null: false, foreign_key: true|
-|password_id|bigint|null: false, foreign_key: true|
-|created_at|datelme|-------|
-|updated_at|datelme|-------|
-|deleted_at|datelme|-------|
-add_index :auth_informatlon, :user_id
-### Association
-- belongs_to  :user
-- has_many :messages
-- has_many :groups
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id|bigint|null: false|
-|group_id|bigint|null: false, foreign_key: true|
-|user_id|bigint|null: false, foreign_key: true|
+|name|string|null: false, unique: true|
 |addition_id|bigint|null: false, foreign_key: true|
 |created_at|datelme|-------|
 |updated_at|datelme|-------|
