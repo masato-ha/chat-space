@@ -19,7 +19,6 @@ add_index :users, :name
 |updated_at|datelme|-------|
 add_index :groups, :group_id
 ### Association
-- belongs_to :auth_informatlon
 - has_many :messages
 - has_many :groups_users
 - has_many :users,  through:  :groups_users
@@ -39,12 +38,11 @@ add_index :groups, :group_id
 |------|----|-------|
 |id|bigint|null: false|
 |body|text|null: false|
-|image|text|null: false|
+|image|text|-------|
 |user_id|bigint|null: false, foreign_key: true|
 |group_id|bigint|null: false, foreign_key: true|
 |created_at|datelme|-------|
 add_index :messages, :body
 ### Association
-- belongs_to :auth_informatlon
 - belongs_to :group
 - belongs_to :user
