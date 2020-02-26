@@ -1,24 +1,69 @@
-# README
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|bigint|null: false|
+|name|string|null: false, unique: true|
+add_index :users, :name
+### Association
+- belongs_to :auth_informatlon
+- has_many :messages
+- has_many :users_groups
+- has_many :groups,  through:  :users_groups
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## auth_informatlonテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|bigint|null: false|
+|email|string|null: false, unique: true|
+|user_id|bigint|null: false, foreign_key: true|
+|login_id|bigint|null: false, foreign_key: true|
+|password_id|bigint|null: false, foreign_key: true|
+|created_at|datelme|-------|
+|updated_at|datelme|-------|
+|deleted_at|datelme|-------|
+add_index :auth_informatlon, :user_id
+### Association
+- belongs_to  :user
+- has_many :messages
+- has_many :groups
 
-Things you may want to cover:
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|bigint|null: false|
+|group_id|bigint|null: false, foreign_key: true|
+|user_id|bigint|null: false, foreign_key: true|
+|addition_id|bigint|null: false, foreign_key: true|
+|created_at|datelme|-------|
+|updated_at|datelme|-------|
+add_index :groups, :group_id
+### Association
+- belongs_to :auth_informatlon
+- has_many :messages
+- has_many :groups_users
+- has_many :users,  through:  :groups_users
 
-* Ruby version
+## users_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|bigint|null: false, foreign_key: true|
+|group_id|bigint|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :group
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|bigint|null: false|
+|body|text|null: false|
+|image|text|null: false|
+|user_id|bigint|null: false, foreign_key: true|
+|group_id|bigint|null: false, foreign_key: true|
+|created_at|datelme|-------|
+add_index :messages, :body
+### Association
+- belongs_to :auth_informatlon
+- belongs_to :group
+- belongs_to :user
