@@ -1,24 +1,48 @@
-# README
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|bigint|null: false|
+|name|string|null: false, unique: true|
+add_index :users, :name
+### Association
+- has_many :messages
+- has_many :users_groups
+- has_many :groups,  through:  :users_groups
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|bigint|null: false|
+|name|string|null: false, unique: true|
+|addition_id|bigint|null: false, foreign_key: true|
+|created_at|datelme|-------|
+|updated_at|datelme|-------|
+add_index :groups, :group_id
+### Association
+- has_many :messages
+- has_many :groups_users
+- has_many :users,  through:  :groups_users
 
-Things you may want to cover:
+## users_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|bigint|null: false, foreign_key: true|
+|group_id|bigint|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :group
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|bigint|null: false|
+|body|text|null: false|
+|image|text|-------|
+|user_id|bigint|null: false, foreign_key: true|
+|group_id|bigint|null: false, foreign_key: true|
+|created_at|datelme|-------|
+add_index :messages, :body
+### Association
+- belongs_to :group
+- belongs_to :user
