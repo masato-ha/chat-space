@@ -1,26 +1,27 @@
 .chat-main
-  .main-header
-    .main-header__content
-      %h2.main-header__current-group{"data-group_id" => "21761"} e68
-      %ul.main-header__meber-list
+  .main
+    .content
+      %h2.content__currentgroup{"data-group_id" => "21761"} e68
+      %ul.content__meberlist
         Member：
-        %li.main-header__meber-list__memer masa
-    %a{:href => "/groups/21761/edit"}
-      .main-header__edit-btn Edit
+        %li.content__currentgroup__meberlist__member masa
+    %a{:href => "/groups/22059/edit"}
+      .main__edit--btn Edit
 
   .messages
     .message{"data-message_id" => "33069"}
-      .message__center-list
-        %p.message__center-list__talker masa
-        %p.message__upper-info__date 2020/03/09(Mon) 00:33:31
-      %p.message__text jgljg
+      .centerlist
+        %p.centerlist__talker masa
+        %p.centerlist__date 2020/03/09(Mon) 00:33:31
+      %p.centerlist__text jgljg
+
   .form
-    %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/21761/messages", :enctype => "multipart/form-data", :method => "post"}
+    %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/22207/messages", :enctype => "multipart/form-data", :method => "post"}
       %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-      %input{:name => "authenticity_token", :type => "hidden", :value => "18+8z2zo2CHCd9ux0QTsx2MLRuyvCV0EU6h+aoZxzHZuAY/DBhYFjeRGVuy0v5vTbPtjoSQlYKU7MhUNRGANeQ=="}/
-      .input-box
-        %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-        %label.input-box__image{:for => "message_image"}
-          %i.fas.fa-image
+      %input{:name => "authenticity_token", :type => "hidden", :value => "stTSFAoEI3TD1wrbt8V6kSm+Gc+hMqWszTHdaYxmW5cfNdrTErS0xr1zO0CsUy4yEspr6Xw0swH7TrYOQPok5w=="}/
+    .input-box
+      %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+      %label.input-box__image{:for => "message_image"}
+        %i.fas.fa-image
         %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
-      %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+    %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
