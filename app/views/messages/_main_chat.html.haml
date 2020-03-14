@@ -1,27 +1,27 @@
 .chat-main
-  .main
-    .content
-      %h2.content__currentgroup{"data-group_id" => "21761"} e68
-      %ul.content__meberlist
+  .chat-main__main
+    .chat-main__main--content
+      %h2.chat-main__main--content--current-group{"data-group_id" => "21761"} e68
+      %ul.chat-main__main--content--meber-list
         Member：
         %li.content__currentgroup__meberlist__member masa
     %a{:href => "/groups/22059/edit"}
-      .main__edit--btn Edit
+    .chat-main__main--edit-btn Edit
 
-  .messages
-    .message{"data-message_id" => "33069"}
-      .centerlist
-        %p.centerlist__talker masa
-        %p.centerlist__date 2020/03/09(Mon) 00:33:31
-      %p.centerlist__text jgljg
+  .chat-main__messages
+    .chat-main__messages--message{"data-message_id" => "33069"}
+      .chat-main__messages--message--center-list
+        %p.chat-main__messages--message--center-list--talker masa
+        %p.chat-main__messages--message--center-list--date 2020/03/09(Mon) 00:33:31
+      %p.chat-main__messages--message--text jgljg
 
-  .form
+  .chat-main__form
     %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/22207/messages", :enctype => "multipart/form-data", :method => "post"}
       %input{:name => "utf8", :type => "hidden", :value => "✓"}/
       %input{:name => "authenticity_token", :type => "hidden", :value => "stTSFAoEI3TD1wrbt8V6kSm+Gc+hMqWszTHdaYxmW5cfNdrTErS0xr1zO0CsUy4yEspr6Xw0swH7TrYOQPok5w=="}/
-    .input-box
-      %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-      %label.input-box__image{:for => "message_image"}
+    .chat-main__form--input-box
+      %input#message_content.chat-main__form--input-box--text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+      %label.chat-main__form--input-box--image{:for => "message_image"}
         %i.fas.fa-image
-        %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
-    %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+        %input#message_image.chat-main__form--input-box--image--file{:name => "message[image]", :type => "file"}/
+    %input.chat-main__form--input-box--submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
