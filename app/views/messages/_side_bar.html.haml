@@ -4,14 +4,15 @@
       %p.chat-side-item__box--name masa
       %ul.chat-side__item--box--icons
         %li.chat-side-item-box__icons--group-sistem
-          %a{:href => "/groupsystem/"}
+          =  link_to "#" do
             %i.fas.fa-edit
         %li.chat-side-item-box__icons--edit-name
-          %a{:href => "/editname/"}
+          =  link_to "#" do
             %i.fas.fa-cog
 
   .chat-side__detalls
-    %a{:href => "/detalls/21871/messages"}
+    =  link_to "#" do
       .chat-side__detalls--menus
         %p.chat-side-detalls__menus--groups e68
         %p.chat-side-detalls__menus--messages まだメッセージがありません
+       

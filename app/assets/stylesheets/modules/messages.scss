@@ -169,6 +169,9 @@
           top: 10px;
           right: 10px;
           cursor: pointer;
+          &--file{
+            display: none;
+          }
         }
         .fa {
           display: inline-block;
@@ -177,9 +180,6 @@
           text-rendering: auto;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
-        }
-        &--file{
-          display: none;
         }
         &--submit-btn{
           width: 100px;
