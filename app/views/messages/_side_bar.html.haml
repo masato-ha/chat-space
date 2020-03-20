@@ -5,14 +5,15 @@
         = current_user.name
       %ul.chat-side__item--box--icons
         %li.chat-side-item-box__icons--group-sistem
-          =  link_to "#" do
-            %i.fas.fa-edit
+          = link_to new_group_path do
+            = icon('fas', 'edit', class: 'icon')
         %li.chat-side-item-box__icons--edit-name
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog', class: 'icon')
   .chat-side__detalls
-    =  link_to "#" do
-      .chat-side__detalls--menus
-        %p.chat-side-detalls__menus--groups e68
-        %p.chat-side-detalls__menus--messages まだメッセージがありません
-       
+     - current_user.detalls.each do |detall|
+      .detall
+        =  link_to "#" do
+          .chat-side__detalls--menus
+            %p.chat-side-detalls__menus--groups e68
+            %p.chat-side-detalls__menus--messages まだメッセージがありません
