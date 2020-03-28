@@ -10,10 +10,12 @@
         %li.chat-side-item-box__icons--edit-name
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog', class: 'icon')
-  .chat-side__detalls
-     - current_user.detalls.each do |detall|
-      .detall
-        =  link_to "#" do
-          .chat-side__detalls--menus
-            %p.chat-side-detalls__menus--groups e68
-            %p.chat-side-detalls__menus--messages まだメッセージがありません
+  .chat-side__group
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .chat-side__group--menus
+            %p.chat-side-grops__menus--groups
+              = group.name
+            %p.chat-side-groups__menus--messages
+              = group.show_last_message
