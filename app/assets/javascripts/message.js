@@ -41,11 +41,8 @@ $(function(){
  }
 $('#new_message').on('submit', function(e){
  e.preventDefault();
- console.log(this)
  var formData = new FormData(this);
  var url = $(this).attr('action')
- console.log(formData)
- console.log(url)
  $.ajax({
    url: url,
    type: "POST",
@@ -55,15 +52,13 @@ $('#new_message').on('submit', function(e){
    contentType: false
  })
   .done(function(data){
-    console.log(data)
     var html = buildHTML(data);
-    console.log(html)
     $('.chat-main__messages').append(html);
     $('.chat-main__messages').animate({ scrollTop: $('.chat-main__messages')[0].scrollHeight});
     $('form')[0].reset();
     $('.submit-btn').prop("disabled",false)
-    .fail(function() {
-      alert("メッセージ送信に失敗しました");
+  .fail(function() {
+    alert("メッセージ送信に失敗しました");
   });
   })
 })
